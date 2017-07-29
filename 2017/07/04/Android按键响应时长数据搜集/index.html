@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="在做Android电视端系统开发的过程中，有一个指标一直是让人想要解密的黑盒子，那就是遥控器按键按下后，到底过了多久才会得到界面上的响应">
+<meta name="description" content="在做Android电视端系统开发的过程中，有一个指标一直是让人想要解密的黑盒子，那就是遥控器按键按下后，到底过了多久才会得到界面上的响应  经过一周多时间的摸索和开发调试，终于实现了以下几个需求。长时间未深入驱动层探险了，显的生疏了。 # 需求分析 收集电视机接收到遥控器信号时的时间戳信息，要求可从应用层KeyEvent中获取 收集电视机系统转发遥控器键值时的时间戳信息，要求同上 收集遥控器键值">
 <meta name="keywords" content="技术坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android按键响应时长数据收集">
 <meta property="og:url" content="http://yoursite.com/2017/07/04/Android按键响应时长数据搜集/index.html">
 <meta property="og:site_name" content="萝卜坑">
-<meta property="og:description" content="在做Android电视端系统开发的过程中，有一个指标一直是让人想要解密的黑盒子，那就是遥控器按键按下后，到底过了多久才会得到界面上的响应">
-<meta property="og:updated_time" content="2017-07-05T23:02:45.000Z">
+<meta property="og:description" content="在做Android电视端系统开发的过程中，有一个指标一直是让人想要解密的黑盒子，那就是遥控器按键按下后，到底过了多久才会得到界面上的响应  经过一周多时间的摸索和开发调试，终于实现了以下几个需求。长时间未深入驱动层探险了，显的生疏了。 # 需求分析 收集电视机接收到遥控器信号时的时间戳信息，要求可从应用层KeyEvent中获取 收集电视机系统转发遥控器键值时的时间戳信息，要求同上 收集遥控器键值">
+<meta property="og:updated_time" content="2017-07-29T14:45:35.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android按键响应时长数据收集">
-<meta name="twitter:description" content="在做Android电视端系统开发的过程中，有一个指标一直是让人想要解密的黑盒子，那就是遥控器按键按下后，到底过了多久才会得到界面上的响应">
+<meta name="twitter:description" content="在做Android电视端系统开发的过程中，有一个指标一直是让人想要解密的黑盒子，那就是遥控器按键按下后，到底过了多久才会得到界面上的响应  经过一周多时间的摸索和开发调试，终于实现了以下几个需求。长时间未深入驱动层探险了，显的生疏了。 # 需求分析 收集电视机接收到遥控器信号时的时间戳信息，要求可从应用层KeyEvent中获取 收集电视机系统转发遥控器键值时的时间戳信息，要求同上 收集遥控器键值">
 
 
 
@@ -333,7 +333,16 @@
         <blockquote>
 <p><strong>在做Android电视端系统开发的过程中，有一个指标一直是让人想要解密的黑盒子，那就是遥控器按键按下后，到底过了多久才会得到界面上的响应</strong></p>
 </blockquote>
-
+<p>经过一周多时间的摸索和开发调试，终于实现了以下几个需求。长时间未深入驱动层探险了，显的生疏了。</p>
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="# 需求分析"></a># 需求分析</h3><ul>
+<li>收集电视机接收到遥控器信号时的时间戳信息，要求可从应用层KeyEvent中获取</li>
+<li>收集电视机系统转发遥控器键值时的时间戳信息，要求同上</li>
+<li>收集遥控器键值是来自红外遥控器还是蓝牙遥控器的信息，要求同上</li>
+</ul>
+<p>如果仅仅是简单的收集，那么只有认清Linux Input子系统的设备驱动部分逻辑，定位出具体的驱动代码，便可基本上满足了需求。<strong>这个需求真正的难点在于将相关信息体现到KeyEvent中</strong>。我们知道KeyEvent是Android应用层可调用的一个按键事件类，平时处理keydown，keyup时免不了使用它。<strong>而Android的事件系统与Linux内核的Input子系统是强相关的，可以理解成从下往上只是做了多层封装和转换</strong>。所以我很难避免地需要从下往上跟踪一个按键事件的被触发到应用层消费的全过程了。</p>
+<h3 id="交付方式"><a href="#交付方式" class="headerlink" title="# 交付方式"></a># 交付方式</h3><p>针对上面的需求，从应用层的角度看，交付方式可以描述为3个自定义接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.view.KeyEvent;</div><div class="line"></div><div class="line">KeyEvent event;</div><div class="line"></div><div class="line">event.getMuiTimeStep1();</div><div class="line">event.getMuiTimeStep2();</div><div class="line">event.getRemoteType();</div></pre></td></tr></table></figure>
+<h3 id="Android-Input-事件处理流程"><a href="#Android-Input-事件处理流程" class="headerlink" title="# Android Input 事件处理流程"></a># Android Input 事件处理流程</h3>
       
     </div>
 
@@ -434,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpeg"
@@ -488,6 +506,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求分析"><span class="nav-number">1.</span> <span class="nav-text"># 需求分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交付方式"><span class="nav-number">2.</span> <span class="nav-text"># 交付方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-Input-事件处理流程"><span class="nav-number">3.</span> <span class="nav-text"># Android Input 事件处理流程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
