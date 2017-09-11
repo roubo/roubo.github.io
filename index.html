@@ -349,6 +349,7 @@
 <h3 id="制作markdown报表模板"><a href="#制作markdown报表模板" class="headerlink" title="# 制作markdown报表模板"></a># 制作markdown报表模板</h3><p>模板的使用方式为仅仅将[date]替换成当天的时间值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># MUI 系统技术数据统计日报</div><div class="line"></div><div class="line">&gt; [date]</div><div class="line"></div><div class="line">### OTA成功率</div><div class="line"></div><div class="line">&gt; 截止到 [date] 为止，线上稳定版本升级成功率结果</div><div class="line"></div><div class="line">![](data-res/[date]_otainfo.png)</div></pre></td></tr></table></figure></p>
 <h3 id="生成报表"><a href="#生成报表" class="headerlink" title="# 生成报表"></a># 生成报表</h3><p>替换模板中的[date]字段，即可生成报表：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -e &apos;s/\[date\]/2017_08_30/g&apos; report_temp.md &gt; report_2017_08_30.md</div></pre></td></tr></table></figure>
+<hr>
 <h3 id="将报表转换成图片-以下为虚拟数据"><a href="#将报表转换成图片-以下为虚拟数据" class="headerlink" title="# 将报表转换成图片(以下为虚拟数据)"></a># 将报表转换成图片(以下为虚拟数据)</h3><p><img src="/images/report_2017_09_10.png" alt=""></p>
 
           
