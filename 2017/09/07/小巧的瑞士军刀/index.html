@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="收集记录一些好用的解放生产力的小技巧。   使用nvm管理繁杂的nodejs版本，随时切换版本并及时生效  1234curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bashnvm --versionnvm ls-remotenvm install [version]">
+<meta name="description" content="收集记录一些好用的解放生产力的小技巧。    使用nvm管理繁杂的nodejs版本，随时切换版本并及时生效  12345curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bashnvm --versionnvm ls-remotenvm install [version]  任何时候处理大">
 <meta name="keywords" content="技术坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小巧的瑞士军刀">
 <meta property="og:url" content="http://yoursite.com/2017/09/07/小巧的瑞士军刀/index.html">
 <meta property="og:site_name" content="萝卜坑">
-<meta property="og:description" content="收集记录一些好用的解放生产力的小技巧。   使用nvm管理繁杂的nodejs版本，随时切换版本并及时生效  1234curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bashnvm --versionnvm ls-remotenvm install [version]">
-<meta property="og:updated_time" content="2017-09-07T02:40:54.340Z">
+<meta property="og:description" content="收集记录一些好用的解放生产力的小技巧。    使用nvm管理繁杂的nodejs版本，随时切换版本并及时生效  12345curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bashnvm --versionnvm ls-remotenvm install [version]  任何时候处理大">
+<meta property="og:updated_time" content="2017-09-11T11:23:12.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小巧的瑞士军刀">
-<meta name="twitter:description" content="收集记录一些好用的解放生产力的小技巧。   使用nvm管理繁杂的nodejs版本，随时切换版本并及时生效  1234curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bashnvm --versionnvm ls-remotenvm install [version]">
+<meta name="twitter:description" content="收集记录一些好用的解放生产力的小技巧。    使用nvm管理繁杂的nodejs版本，随时切换版本并及时生效  12345curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bashnvm --versionnvm ls-remotenvm install [version]  任何时候处理大">
 
 
 
@@ -333,10 +333,23 @@
         <blockquote>
 <p>收集记录一些好用的解放生产力的小技巧。</p>
 </blockquote>
-<ul>
-<li>使用nvm管理繁杂的nodejs版本，随时切换版本并及时生效</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash</div><div class="line">nvm --version</div><div class="line">nvm ls-remote</div><div class="line">nvm install [version]</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>使用nvm管理繁杂的nodejs版本，随时切换版本并及时生效</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash</div><div class="line">nvm --version</div><div class="line">nvm ls-remote</div><div class="line">nvm install [version]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>任何时候处理大量二维数据的时候，都先考虑使用pandas, 更快更好</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 数据处理必引用</span></div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div></pre></td></tr></table></figure>
+<blockquote>
+<p>matplotlib 绘图时需要显示中文</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载simhei.ttf字体库</span></div><div class="line"><span class="comment"># 复制到/usr/local/lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf/</span></div><div class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'simhei'</span>]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>去除警告</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> warnings <span class="keyword">import</span> filterwarnings</div><div class="line"><span class="keyword">import</span> MySQLdb <span class="keyword">as</span> Database</div><div class="line">filterwarnings(<span class="string">'ignore'</span>, category = Database.Warning)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -388,6 +401,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/08/解放劳动力，自动数据报表/" rel="prev" title="解放劳动力，自动数据报表">
+                解放劳动力，自动数据报表 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -450,7 +467,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
