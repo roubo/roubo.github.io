@@ -102,7 +102,7 @@
 <meta property="og:description" content="可以先声明，对于外人来说，这是一个典型的“标题党”文章，当时对于自己来说，并没这么觉得。成年人，不要在意这么多。  # 内存占用情况的分析作为系统端而言，在一个资源受限的系统上，应用内存优化的优先级可以通过占用排名TOP10来衡量。这里从系统角度出发，对应用内存的占用情况的分析通过以下三步走。  1、procrank看排名  Android调试状态下一般都包含procrank工具，如果默认没有，">
 <meta property="og:image" content="http://yoursite.com/2017/09/15/成年人的学习，Android内存优化专家/images/monitors.png">
 <meta property="og:image" content="http://yoursite.com/2017/09/15/成年人的学习，Android内存优化专家/images/MAT.png">
-<meta property="og:updated_time" content="2017-09-15T01:30:34.980Z">
+<meta property="og:updated_time" content="2017-09-15T01:32:15.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="成年人的学习，Android内存优化专家">
 <meta name="twitter:description" content="可以先声明，对于外人来说，这是一个典型的“标题党”文章，当时对于自己来说，并没这么觉得。成年人，不要在意这么多。  # 内存占用情况的分析作为系统端而言，在一个资源受限的系统上，应用内存优化的优先级可以通过占用排名TOP10来衡量。这里从系统角度出发，对应用内存的占用情况的分析通过以下三步走。  1、procrank看排名  Android调试状态下一般都包含procrank工具，如果默认没有，">
@@ -358,6 +358,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">➜  ~ adb shell am dumpheap com.mgtv.surveyor  /data/surveyor.hprof</div><div class="line">➜  ~ adb pull  /data/surveyor.hprof .</div><div class="line">➜  ~ hprof-conv surveyor.hprof surveyor_conv.hprof</div></pre></td></tr></table></figure>
 <p>使用MAT工具分析hprof文件：</p>
 <p><img src="images/MAT.png" alt=""></p>
+<p><a href="http://www.youtube.com/watch?v=_CruQY55HOk" target="_blank" rel="external">Google I/O 内存管理讲解</a></p>
 
       
     </div>
