@@ -347,7 +347,7 @@
 <p>2、借助Monitors来查看内存的动态使用情况，找到峰值</p>
 </blockquote>
 <p>Android Studio提供了很好的监控工具Monitors，借助他，可以一边操作应用，一边查看内存占用，找到可能出现的峰值，这个值可能就是我们要攻克的高地。</p>
-<p><img src="images/monitors.png" alt=""></p>
+<p><img src="/images/monitors.png" alt=""></p>
 <p>但是这里的内存占用大小其实是堆内存大小，虽然如此，这个值的变化也可以告诉我们什么时候会发生峰值，已经占用的结构是怎么样的。</p>
 <blockquote>
 <p>3、分析堆转储，定位占用结构</p>
@@ -355,7 +355,7 @@
 <p>定位了占用内存较高的应用之后，就需要占用内存较高的模块了。通过获取和分析堆转储，可以定位占用的结构。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">➜  ~ adb shell am dumpheap com.mgtv.surveyor  /data/surveyor.hprof</div><div class="line">➜  ~ adb pull  /data/surveyor.hprof .</div><div class="line">➜  ~ hprof-conv surveyor.hprof surveyor_conv.hprof</div></pre></td></tr></table></figure>
 <p>使用MAT工具分析hprof文件：</p>
-<p><img src="images/MAT.png" alt=""></p>
+<p><img src="/images/MAT.png" alt=""></p>
 <p><a href="http://www.youtube.com/watch?v=_CruQY55HOk" target="_blank" rel="external">Google I/O 内存管理讲解</a></p>
 
           
