@@ -443,6 +443,7 @@
         
           
             <h3 id="内存占用情况的分析"><a href="#内存占用情况的分析" class="headerlink" title="# 内存占用情况的分析"></a># 内存占用情况的分析</h3><p>作为系统端而言，在一个资源受限的系统上，应用内存优化的优先级可以通过占用排名TOP10来衡量。这里从系统角度出发，对应用内存的占用情况的分析通过以下三步走。</p>
+<hr>
 <blockquote>
 <p>1、procrank看排名</p>
 </blockquote>
@@ -583,6 +584,7 @@
 <li><a href="https://github.com/luojilab/DDComponentForAndroid" target="_blank" rel="external">得到app组件化之路</a></li>
 <li>团队项目中的组件化结构</li>
 </ul>
+<hr>
 
           
         
@@ -721,6 +723,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 
           
         
@@ -837,6 +840,7 @@
 </blockquote>
 <h3 id="获取原始数据"><a href="#获取原始数据" class="headerlink" title="# 获取原始数据"></a># 获取原始数据</h3><p>公司考虑到数据安全，原始数据的获取需要经过特殊的密钥申请，但是基本上是aws的那套安全机制。细节就不在这里记录。只需从我们的执行服务器上执行特定的脚本按月拉取截止到目前为止的所有相关原始数据。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./pull.sh 08</div></pre></td></tr></table></figure>
+<hr>
 <p>同步好数据以后，因为原始数据可能会有其他同事做其他分析用，所以一般上我会再同步一份到我的工作目录。</p>
 <p><strong>这个步骤在自动报表中，会在每天凌晨1点钟自动运行</strong></p>
 <h3 id="准备工作目录"><a href="#准备工作目录" class="headerlink" title="# 准备工作目录"></a># 准备工作目录</h3><p>为了清晰结构，我习惯性地在工作目录中区分原始数据，中间数据，错误数据，以及结果数据，这样有利于分析问题和有效减少数据预处理的时间。</p>
@@ -1340,6 +1344,7 @@
 <li>可在版本输出前后，运行自动化测试脚本，进行集成回归测试；</li>
 <li>可方便添加独立的测试或者处理模块。</li>
 </ul>
+<hr>
 <h3 id="思路和流程设计"><a href="#思路和流程设计" class="headerlink" title="# 思路和流程设计"></a># 思路和流程设计</h3><blockquote>
 <p>从包的角度的流水</p>
 </blockquote>
@@ -1488,6 +1493,7 @@
 <p><strong>在做Android电视端系统开发的过程中，有一个指标一直是让人想要解密的黑盒子，那就是遥控器按键按下后，到底过了多久才会得到界面上的响应</strong></p>
 </blockquote>
 <p>经过一周多时间的摸索和开发调试，终于实现了以下几个需求。长时间未深入驱动层探险了，显的生疏了。</p>
+<hr>
 <h3 id="需求分析"><a href="#需求分析" class="headerlink" title="# 需求分析"></a># 需求分析</h3><ul>
 <li>收集电视机接收到遥控器信号时的时间戳信息，要求可从应用层KeyEvent中获取</li>
 <li>收集电视机系统转发遥控器键值时的时间戳信息，要求同上</li>

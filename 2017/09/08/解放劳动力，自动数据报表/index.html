@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="萝卜坑">
 <meta property="og:description" content="最近在关注Android系统的优化，但是也涉及到了处理和分析线上用户的使用情况。所以需要每天观察线上数据，目前为止，还没有一个可视化的技术数据平台，所以动手搭建一个自动日报或者周报的输出模块，用来解放双手。文中有些步骤为工作环境原因的特殊操作，没有普遍性。  # 获取原始数据公司考虑到数据安全，原始数据的获取需要经过特殊的密钥申请，但是基本上是aws的那套安全机制。细节就不在这里记录。只需从我们">
 <meta property="og:image" content="http://yoursite.com/images/report_2017_09_10.png">
-<meta property="og:updated_time" content="2017-09-11T14:45:19.748Z">
+<meta property="og:updated_time" content="2017-11-27T07:10:05.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解放劳动力，自动数据报表">
 <meta name="twitter:description" content="最近在关注Android系统的优化，但是也涉及到了处理和分析线上用户的使用情况。所以需要每天观察线上数据，目前为止，还没有一个可视化的技术数据平台，所以动手搭建一个自动日报或者周报的输出模块，用来解放双手。文中有些步骤为工作环境原因的特殊操作，没有普遍性。  # 获取原始数据公司考虑到数据安全，原始数据的获取需要经过特殊的密钥申请，但是基本上是aws的那套安全机制。细节就不在这里记录。只需从我们">
@@ -337,6 +337,7 @@
 </blockquote>
 <h3 id="获取原始数据"><a href="#获取原始数据" class="headerlink" title="# 获取原始数据"></a># 获取原始数据</h3><p>公司考虑到数据安全，原始数据的获取需要经过特殊的密钥申请，但是基本上是aws的那套安全机制。细节就不在这里记录。只需从我们的执行服务器上执行特定的脚本按月拉取截止到目前为止的所有相关原始数据。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./pull.sh 08</div></pre></td></tr></table></figure>
+<hr>
 <p>同步好数据以后，因为原始数据可能会有其他同事做其他分析用，所以一般上我会再同步一份到我的工作目录。</p>
 <p><strong>这个步骤在自动报表中，会在每天凌晨1点钟自动运行</strong></p>
 <h3 id="准备工作目录"><a href="#准备工作目录" class="headerlink" title="# 准备工作目录"></a># 准备工作目录</h3><p>为了清晰结构，我习惯性地在工作目录中区分原始数据，中间数据，错误数据，以及结果数据，这样有利于分析问题和有效减少数据预处理的时间。</p>
