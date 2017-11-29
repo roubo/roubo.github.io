@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/07/小巧的瑞士军刀/index.html">
 <meta property="og:site_name" content="萝卜坑">
 <meta property="og:description" content="收集记录一些好用的解放生产力的小技巧。">
-<meta property="og:updated_time" content="2017-11-27T07:14:53.096Z">
+<meta property="og:updated_time" content="2017-11-28T03:11:39.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小巧的瑞士军刀">
 <meta name="twitter:description" content="收集记录一些好用的解放生产力的小技巧。">
@@ -354,6 +354,10 @@
 <p>可读写的nfs服务</p>
 </blockquote>
 <p>其中最关键的是1001这个uid是一个具体的用户id，可以去/etc/passwd中去选择<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/data/miwa-nfs  *(rw,all_squash,insecure,anonuid=1001,anongid=1001,sync,no_subtree_check)</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>git去除所有未提交的modify</p>
+</blockquote>
+<p>1、git checkout – . 清除非新增文件的modify<br>2、git checkout . 清除所有文件的modify<br>3、git reset –hard &amp;&amp; git clean -xdf 清除已经进入暂存区的modify</p>
 
       
     </div>
