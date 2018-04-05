@@ -100,6 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/15/Android内存优化/index.html">
 <meta property="og:site_name" content="萝卜坑">
 <meta property="og:description" content="# 内存占用情况的分析作为系统端而言，在一个资源受限的系统上，应用内存优化的优先级可以通过占用排名TOP10来衡量。这里从系统角度出发，对应用内存的占用情况的分析通过以下三步走。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/monitors.png">
 <meta property="og:image" content="http://yoursite.com/images/MAT.png">
 <meta property="og:updated_time" content="2017-11-27T07:14:37.900Z">
@@ -339,9 +340,9 @@
 <p>1、procrank看排名</p>
 </blockquote>
 <p>Android调试状态下一般都包含procrank工具，如果默认没有，移植编译都是值得的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">130|root@Hi3751V500:/ <span class="comment"># procrank                                           PID       Vss      Rss      Pss      Uss  cmdline</span></div><div class="line"> 2481  1018200K  138932K   90665K   83608K  com.mgtv.mgui</div><div class="line"> 1978   940364K   73608K   36234K   31456K  system_server</div><div class="line"> 2116   888956K   77416K   28661K   21492K  com.android.systemui</div><div class="line"> 2397   863640K   49352K   19322K   17564K  com.mgtv.surveyor</div><div class="line"> 2232   881108K   50364K   17368K   14560K  com.sohu.inputmethod.sogou.tv</div><div class="line"> 2821   876556K   49552K   16775K   14160K  com.audiocn.kalaok.tv.k66</div><div class="line"> 2100   857660K   43712K   11614K    8480K  com.hisilicon.tv.service</div><div class="line"> 2911   872916K   41652K   10627K    8144K  com.hpplay.happyplay.aw</div><div class="line"> 2570   853600K   39432K   10254K    8692K  com.mgtv.setting</div><div class="line"> 1486   825108K   48552K    9259K    4460K  zygote</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">130|root@Hi3751V500:/ <span class="comment"># procrank                                           PID       Vss      Rss      Pss      Uss  cmdline</span></span><br><span class="line"> 2481  1018200K  138932K   90665K   83608K  com.mgtv.mgui</span><br><span class="line"> 1978   940364K   73608K   36234K   31456K  system_server</span><br><span class="line"> 2116   888956K   77416K   28661K   21492K  com.android.systemui</span><br><span class="line"> 2397   863640K   49352K   19322K   17564K  com.mgtv.surveyor</span><br><span class="line"> 2232   881108K   50364K   17368K   14560K  com.sohu.inputmethod.sogou.tv</span><br><span class="line"> 2821   876556K   49552K   16775K   14160K  com.audiocn.kalaok.tv.k66</span><br><span class="line"> 2100   857660K   43712K   11614K    8480K  com.hisilicon.tv.service</span><br><span class="line"> 2911   872916K   41652K   10627K    8144K  com.hpplay.happyplay.aw</span><br><span class="line"> 2570   853600K   39432K   10254K    8692K  com.mgtv.setting</span><br><span class="line"> 1486   825108K   48552K    9259K    4460K  zygote</span><br></pre></td></tr></table></figure>
 <p>从输出看，含有Vss， Rss, Pss, Uss几个参数，他们的含义可以参考：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">VSS- Virtual Set Size 虚拟耗用内存（包含共享库占用的内存）</div><div class="line">RSS- Resident Set Size 实际使用物理内存（包含共享库占用的内存）</div><div class="line">PSS- Proportional Set Size 实际使用的物理内存（比例分配共享库占用的内存）</div><div class="line">USS- Unique Set Size 进程独自占用的物理内存（不包含共享库占用的内存）</div><div class="line">一般来说内存占用大小有如下规律：VSS &gt;= RSS &gt;= PSS &gt;= USS</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">VSS- Virtual Set Size 虚拟耗用内存（包含共享库占用的内存）</span><br><span class="line">RSS- Resident Set Size 实际使用物理内存（包含共享库占用的内存）</span><br><span class="line">PSS- Proportional Set Size 实际使用的物理内存（比例分配共享库占用的内存）</span><br><span class="line">USS- Unique Set Size 进程独自占用的物理内存（不包含共享库占用的内存）</span><br><span class="line">一般来说内存占用大小有如下规律：VSS &gt;= RSS &gt;= PSS &gt;= USS</span><br></pre></td></tr></table></figure>
 <p>从系统角度上看，使用pss来含量是最公平合理的。</p>
 <blockquote>
 <p>2、借助Monitors来查看内存的动态使用情况，找到峰值</p>
@@ -353,10 +354,10 @@
 <p>3、分析堆转储，定位占用结构</p>
 </blockquote>
 <p>定位了占用内存较高的应用之后，就需要占用内存较高的模块了。通过获取和分析堆转储，可以定位占用的结构。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">➜  ~ adb shell am dumpheap com.mgtv.surveyor  /data/surveyor.hprof</div><div class="line">➜  ~ adb pull  /data/surveyor.hprof .</div><div class="line">➜  ~ hprof-conv surveyor.hprof surveyor_conv.hprof</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ adb shell am dumpheap com.mgtv.surveyor  /data/surveyor.hprof</span><br><span class="line">➜  ~ adb pull  /data/surveyor.hprof .</span><br><span class="line">➜  ~ hprof-conv surveyor.hprof surveyor_conv.hprof</span><br></pre></td></tr></table></figure>
 <p>使用MAT工具分析hprof文件：</p>
 <p><img src="/images/MAT.png" alt=""></p>
-<p><a href="http://www.youtube.com/watch?v=_CruQY55HOk" target="_blank" rel="external">Google I/O 内存管理讲解</a></p>
+<p><a href="http://www.youtube.com/watch?v=_CruQY55HOk" target="_blank" rel="noopener">Google I/O 内存管理讲解</a></p>
 
       
     </div>

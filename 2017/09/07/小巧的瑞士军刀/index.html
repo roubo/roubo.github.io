@@ -100,6 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/07/小巧的瑞士军刀/index.html">
 <meta property="og:site_name" content="萝卜坑">
 <meta property="og:description" content="收集记录一些好用的解放生产力的小技巧。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-11-28T03:11:39.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小巧的瑞士军刀">
@@ -337,23 +338,23 @@
 <blockquote>
 <p>使用nvm管理繁杂的nodejs版本，随时切换版本并及时生效</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash</div><div class="line">nvm --version</div><div class="line">nvm ls-remote</div><div class="line">nvm install [version]</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash</span><br><span class="line">nvm --version</span><br><span class="line">nvm ls-remote</span><br><span class="line">nvm install [version]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>任何时候处理大量二维数据的时候，都先考虑使用pandas, 更快更好</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 数据处理必引用</span></div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据处理必引用</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>matplotlib 绘图时需要显示中文</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载simhei.ttf字体库</span></div><div class="line"><span class="comment"># 复制到/usr/local/lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf/</span></div><div class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'simhei'</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载simhei.ttf字体库</span></span><br><span class="line"><span class="comment"># 复制到/usr/local/lib/python2.7/site-packages/matplotlib/mpl-data/fonts/ttf/</span></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'simhei'</span>]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>去除警告</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> warnings <span class="keyword">import</span> filterwarnings</div><div class="line"><span class="keyword">import</span> MySQLdb <span class="keyword">as</span> Database</div><div class="line">filterwarnings(<span class="string">'ignore'</span>, category = Database.Warning)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> warnings <span class="keyword">import</span> filterwarnings</span><br><span class="line"><span class="keyword">import</span> MySQLdb <span class="keyword">as</span> Database</span><br><span class="line">filterwarnings(<span class="string">'ignore'</span>, category = Database.Warning)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>可读写的nfs服务</p>
 </blockquote>
-<p>其中最关键的是1001这个uid是一个具体的用户id，可以去/etc/passwd中去选择<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/data/miwa-nfs  *(rw,all_squash,insecure,anonuid=1001,anongid=1001,sync,no_subtree_check)</div></pre></td></tr></table></figure></p>
+<p>其中最关键的是1001这个uid是一个具体的用户id，可以去/etc/passwd中去选择<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data/miwa-nfs  *(rw,all_squash,insecure,anonuid=1001,anongid=1001,sync,no_subtree_check)</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>git去除所有未提交的modify</p>
 </blockquote>
